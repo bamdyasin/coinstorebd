@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বিজনেস সল্যুশন - COINSTORE.BD</title>
+    <meta name="description" content="COINSTORE.BD বিজনেস সল্যুশন। আমরা দিচ্ছি সোশ্যাল মিডিয়া মার্কেটিং এবং গেমিং সার্ভিস রিসেলার সুবিধা।">
+    
+    <!-- Bootstrap -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Font -->
+    <link href="../assets/css/css2" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <style>
+        body { padding-top: 80px; }
+        header { background-color: #0a192f; color: #ffffff; padding: 0.8rem 20px; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 35px; }
+        .menu-toggle { color: #ffd700; cursor: pointer; font-size: 1.2rem; }
+        nav#nav-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 300px; height: 100vh; background-color: #0a192f; transition: 0.3s ease; z-index: 1001; box-shadow: -5px 0 15px rgba(0,0,0,0.3); display: block; }
+        nav#nav-menu.active { right: 0; }
+        .nav-close { position: absolute; top: 0.8rem; right: 20px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #ffd700; font-size: 1.2rem; }
+        nav ul { list-style: none; padding: 80px 0 0 0; margin: 0; }
+        nav ul li a { display: block; padding: 1.2rem 2rem; color: #ffffff !important; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        nav ul li a:hover { background: #ffd700; color: #0a192f !important; padding-left: 2.5rem; }
+        .page-content { min-height: 60vh; padding: 50px 0; }
+        .app-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 30px; backdrop-filter: blur(12px); }
+        .feature-box { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.05); height: 100%; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="../home.html">
+            <img src="../assets/images/logo_1775895910.png" alt="Logo">
+        </a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="menu-toggle" id="mobile-menu-trigger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <nav id="nav-menu">
+        <div class="nav-close" id="nav-close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul>
+            <li><a href="../home.html"><i class="fas fa-home me-2"></i> হোম</a></li>
+            <li><a href="../index.html?tab=promote"><i class="fas fa-bullhorn me-2"></i> প্রমোট</a></li>
+            <li><a href="../index.html"><i class="fas fa-coins me-2"></i> কয়েন নিন</a></li>
+            <li><a href="business.html"><i class="fas fa-briefcase me-2"></i> বিজনেস</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle me-2"></i> আমাদের সম্পর্কে</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope me-2"></i> যোগাযোগ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container page-content">
+    <div class="app-card shadow-lg mb-5">
+        <h1 class="text-gold fw-bold mb-4 text-center">বিজনেস সল্যুশন</h1>
+        <p class="text-white-50 text-center mx-auto" style="max-width: 700px;">আপনি কি ডিজিটাল সার্ভিস নিয়ে বিজনেস করতে চান? COINSTORE.BD আপনাকে দিচ্ছে সবচেয়ে সাশ্রয়ী মূল্যে পাইকারি রেটে সার্ভিস নেয়ার সুযোগ।</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="feature-box">
+                <i class="bi bi-graph-up-arrow text-tiktok-sm fs-1 mb-3 d-block"></i>
+                <h3 class="text-white">বড় অংকের অর্ডার</h3>
+                <p class="text-white-50">আপনি যদি নিয়মিত বড় অংকের অর্ডার (Bulk Orders) করতে চান, তবে আমাদের সাথে বিজনেস একাউন্টে যুক্ত হতে পারেন এবং বিশেষ ডিসকাউন্ট উপভোগ করতে পারেন।</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="feature-box">
+                <i class="bi bi-people-fill text-info fs-1 mb-3 d-block"></i>
+                <h3 class="text-white">রিসেলার সুবিধা</h3>
+                <p class="text-white-50">আমাদের কাছ থেকে পাইকারি রেটে কয়েন বা ইউসি কিনে আপনি আপনার নিজের কাস্টমারদের কাছে লাভজনক মূল্যে বিক্রি করতে পারেন।</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="https://wa.me/8801845464021" class="btn btn-tiktok px-5 py-3 rounded-pill fs-5">
+            <i class="fab fa-whatsapp me-2"></i> কথা বলুন আমাদের সাথে
+        </a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>COINSTORE.BD</h3>
+            <p>বাংলাদেশের অন্যতম নির্ভরযোগ্য গেমিং সার্ভিস প্রোভাইডার।</p>
+        </div>
+        <div class="footer-section">
+            <h3>আমাদের সাথে যুক্ত হোন</h3>
+            <div class="footer-social-row">
+                <a href="#" target="_blank" class="contact-item" title="Facebook"><span class="contact-icon"><i class="fab fa-facebook-f"></i></span></a>
+                <a href="#" target="_blank" class="contact-item" title="WhatsApp"><span class="contact-icon"><i class="fab fa-whatsapp"></i></span></a>
+                <a href="#" target="_blank" class="contact-item" title="YouTube"><span class="contact-icon"><i class="fab fa-youtube"></i></span></a>
+                <a href="#" target="_blank" class="contact-item" title="Telegram"><span class="contact-icon"><i class="fab fa-telegram-plane"></i></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 COINSTORE.BD - All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuTrigger = document.getElementById('mobile-menu-trigger');
+        const navMenu = document.getElementById('nav-menu');
+        const closeBtn = document.getElementById('nav-close-btn');
+
+        if(menuTrigger && navMenu) {
+            menuTrigger.addEventListener('click', () => navMenu.classList.add('active'));
+        }
+        if(closeBtn && navMenu) {
+            closeBtn.addEventListener('click', () => navMenu.classList.remove('active'));
+        }
+    });
+</script>
+</body>
+</html>
