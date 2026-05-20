@@ -1,2 +1,1 @@
-# coinstore.bd
 # coinstorebd
