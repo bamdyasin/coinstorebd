@@ -216,70 +216,7 @@
     </div>
 </div>
 
-<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #0a192f; position: fixed; top: 0; width: 100%; z-index: 1000;">
-    <div class="logo">
-        <a href="home.html">
-            <img src="./assets/images/logo_1775895910.png" alt="Logo" style="height: 35px;">
-        </a>
-    </div>
-
-    <div style="display: flex; align-items: center; gap: 10px;">
-        <div class="input-group" style="width: 200px; background: #1a2a47; border: 1px solid #fe2c55; border-radius: 20px; overflow: hidden; padding: 1px;">
-            <input type="text" id="header_trxid_search" class="form-control form-control-sm" placeholder="TrxID" style="background: transparent; border: none; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; height: 28px;">
-            <button type="button" class="btn btn-sm btn-danger" onclick="checkStatus()" style="background: #fe2c55; border: none; border-radius: 20px; padding: 0 10px; font-size: 0.7rem; font-weight: 600; height: 28px;">Check</button>
-        </div>
-
-        <div class="menu-toggle" id="mobile-menu-trigger" style="color: #ffd700; cursor: pointer; font-size: 1.2rem;">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-
-    <nav id="nav-menu">
-        <div class="nav-close" id="nav-close-btn">
-            <i class="fas fa-times"></i>
-        </div>
-        <ul>
-            <li>
-                                    <a href="index.html?lang=en"><i class="fas fa-globe me-2"></i> English (EN)</a>
-                            </li>
-            <li><a href="home.html"><i class="fas fa-home me-2"></i> হোম</a></li>
-            <li><a href="home.html?tab=promote"><i class="fas fa-bullhorn me-2"></i> প্রমোট</a></li>
-            <li><a href="index.html"><i class="fas fa-coins me-2"></i> কয়েন নিন</a></li>
-            <li><a href="pages/business.html"><i class="fas fa-briefcase me-2"></i> বিজনেস</a></li>
-            <li><a href="pages/about.html"><i class="fas fa-info-circle me-2"></i> আমাদের সম্পর্কে</a></li>
-            <li><a href="pages/contact.html"><i class="fas fa-envelope me-2"></i> যোগাযোগ</a></li>
-        </ul>
-    </nav>
-</header>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuTrigger = document.getElementById('mobile-menu-trigger');
-        const navMenu = document.getElementById('nav-menu');
-        const closeBtn = document.getElementById('nav-close-btn');
-
-        if(menuTrigger && navMenu) {
-            menuTrigger.addEventListener('click', function() {
-                navMenu.classList.add('active');
-            });
-        }
-
-        if(closeBtn && navMenu) {
-            closeBtn.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-            });
-        }
-
-        document.addEventListener('click', function(event) {
-            if (navMenu && navMenu.classList.contains('active') && 
-                !navMenu.contains(event.target) && 
-                !menuTrigger.contains(event.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
-    });
-
-</script>
+<div id="header-placeholder"></div>
 
 <style>
     .hero-section {
@@ -639,54 +576,7 @@
             </div>
             </div>
 
-<script src="./assets/js/config.js"></script>
-<script src="./assets/js/script.js"></script>    
-
-</body></html>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>COINSTORE.BD</h3>
-                <p>বাংলাদেশের অন্যতম নির্ভরযোগ্য গেমিং সার্ভিস প্রোভাইডার। আমরা দিচ্ছি সবচেয়ে কম দামে কয়েন, ইউসি এবং ডায়মন্ড টপ-আপ সুবিধা।</p>
-            </div>
-            
-
-            <div class="footer-section">
-                <h3>আমাদের সাথে যুক্ত হোন</h3>
-                <div class="footer-social-row">
-                    <!-- Contact Icons -->
-                                        <a href="index.html#" target="_blank" class="contact-item" title="Our Location">
-                        <span class="contact-icon"><i class="fas fa-location-dot"></i></span>
-                    </a>
-                                        
-                                        <a href="index.html#" target="_blank" class="contact-item" title="TikTok">
-                        <span class="contact-icon"><i class="fab fa-tiktok"></i></span>
-                    </a>
-                    
-                    <a href="#" target="_blank" class="contact-item" title="Facebook">
-                        <span class="contact-icon"><i class="fab fa-facebook-f"></i></span>
-                    </a>
-                    
-                    <a href="#" target="_blank" class="contact-item" title="WhatsApp">
-                        <span class="contact-icon"><i class="fab fa-whatsapp"></i></span>
-                    </a>
-
-                    <a href="#" target="_blank" class="contact-item" title="YouTube">
-                        <span class="contact-icon"><i class="fab fa-youtube"></i></span>
-                    </a>
-
-                    <a href="#" target="_blank" class="contact-item" title="Telegram">
-                        <span class="contact-icon"><i class="fab fa-telegram-plane"></i></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© 2026 COINSTORE.BD - All Rights Reserved.</p>
-        </div>
-    </footer>
+<div id="footer-placeholder"></div>
 
     <!-- Order Status Modal -->
     <div id="statusModal" class="modal">

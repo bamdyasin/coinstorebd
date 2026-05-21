@@ -193,70 +193,7 @@
     </div>
 </div>
 
-<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #0a192f; position: fixed; top: 0; width: 100%; z-index: 1000;">
-    <div class="logo">
-        <a href="home.html">
-            <img src="./assets/images/logo_1775895910.png" alt="Logo" style="height: 35px;">
-        </a>
-    </div>
-
-    <div style="display: flex; align-items: center; gap: 10px;">
-        <div class="input-group" style="width: 200px; background: #1a2a47; border: 1px solid #fe2c55; border-radius: 20px; overflow: hidden; padding: 1px;">
-            <input type="text" id="header_trxid_search" class="form-control form-control-sm" placeholder="TrxID" style="background: transparent; border: none; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; height: 28px;">
-            <button type="button" class="btn btn-sm btn-danger" onclick="checkStatus()" style="background: #fe2c55; border: none; border-radius: 20px; padding: 0 10px; font-size: 0.7rem; font-weight: 600; height: 28px;">Check</button>
-        </div>
-
-        <div class="menu-toggle" id="mobile-menu-trigger" style="color: #ffd700; cursor: pointer; font-size: 1.2rem;">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-
-    <nav id="nav-menu">
-        <div class="nav-close" id="nav-close-btn">
-            <i class="fas fa-times"></i>
-        </div>
-        <ul>
-            <li>
-                                    <a href="home.html?lang=en"><i class="fas fa-globe me-2"></i> English (EN)</a>
-                            </li>
-            <li><a href="home.html"><i class="fas fa-home me-2"></i> হোম</a></li>
-            <li><a href="index.html?tab=promote"><i class="fas fa-bullhorn me-2"></i> প্রমোট</a></li>
-            <li><a href="index.html"><i class="fas fa-coins me-2"></i> কয়েন নিন</a></li>
-            <li><a href="pages/business.html"><i class="fas fa-briefcase me-2"></i> বিজনেস</a></li>
-            <li><a href="pages/about.html"><i class="fas fa-info-circle me-2"></i> আমাদের সম্পর্কে</a></li>
-            <li><a href="pages/contact.html"><i class="fas fa-envelope me-2"></i> যোগাযোগ</a></li>
-        </ul>
-    </nav>
-</header>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuTrigger = document.getElementById('mobile-menu-trigger');
-        const navMenu = document.getElementById('nav-menu');
-        const closeBtn = document.getElementById('nav-close-btn');
-
-        if(menuTrigger && navMenu) {
-            menuTrigger.addEventListener('click', function() {
-                navMenu.classList.add('active');
-            });
-        }
-
-        if(closeBtn && navMenu) {
-            closeBtn.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-            });
-        }
-
-        document.addEventListener('click', function(event) {
-            if (navMenu && navMenu.classList.contains('active') && 
-                !navMenu.contains(event.target) && 
-                !menuTrigger.contains(event.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
-    });
-
-</script>
+<div id="header-placeholder"></div>
 
 <div class="container mt-4 mb-5 position-relative">
     <!-- Abstract Background Elements (Matching Hero Style) -->
@@ -386,11 +323,7 @@
     }
 
     .card-inner {
-        position: relative;
-        z-index: 5;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+        position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column;
     }
 
     /* Hover Effects */
@@ -403,15 +336,7 @@
 
     /* Icon Box Styling */
     .icon-box-premium {
-        width: 72px;
-        height: 72px;
-        border-radius: 20px;
-        border: 1px solid;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        transition: all 0.5s ease;
+        width: 72px; height: 72px; border-radius: 20px; border: 1px solid; display: flex; align-items: center; justify-content: center; font-size: 2rem; transition: all 0.5s ease;
     }
 
     .service-card-premium:hover .icon-box-premium {
@@ -420,62 +345,25 @@
 
     /* Popular Tag */
     .popular-tag {
-        position: absolute;
-        top: 25px;
-        right: -35px;
-        background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
-        color: #0a192f;
-        padding: 5px 40px;
-        font-size: 0.7rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        transform: rotate(45deg);
-        z-index: 10;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        position: absolute; top: 25px; right: -35px; background: linear-gradient(135deg, #ffd700 0%, #daa520 100%); color: #0a192f; padding: 5px 40px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; transform: rotate(45deg); z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     /* Button Action Styling */
     .btn-action {
-        background: rgba(254, 44, 85, 0.1);
-        border: 1px solid rgba(254, 44, 85, 0.2);
-        color: #fe2c55;
-        padding: 8px 18px;
-        border-radius: 14px;
-        font-weight: 600;
-        font-size: 0.85rem;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
+        background: rgba(254, 44, 85, 0.1); border: 1px solid rgba(254, 44, 85, 0.2); color: #fe2c55; padding: 8px 18px; border-radius: 14px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center;
     }
 
     .btn-action:hover {
-        background: #fe2c55;
-        color: white;
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(254, 44, 85, 0.3);
+        background: #fe2c55; color: white; transform: scale(1.05); box-shadow: 0 10px 20px rgba(254, 44, 85, 0.3);
     }
 
     /* Status Indicator for Coming Soon */
     .status-indicator {
-        display: inline-flex;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 6px 15px;
-        border-radius: 30px;
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.6);
-        font-weight: 600;
+        display: inline-flex; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 6px 15px; border-radius: 30px; font-size: 0.75rem; color: rgba(255, 255, 255, 0.6); font-weight: 600;
     }
 
     .status-indicator .dot {
-        width: 8px;
-        height: 8px;
-        background: #ffd700;
-        border-radius: 50%;
-        margin-right: 8px;
-        box-shadow: 0 0 10px #ffd700;
-        animation: pulse-dot 2s infinite;
+        width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px #ffd700; animation: pulse-dot 2s infinite;
     }
 
     @keyframes pulse-dot {
@@ -486,14 +374,7 @@
 
     /* Overlay Background Animation */
     .card-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
-        opacity: 0;
-        transition: opacity 0.5s ease;
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 50%); opacity: 0; transition: opacity 0.5s ease;
     }
 
     .service-card-premium:hover .card-overlay {
@@ -511,50 +392,7 @@
     }
 </style>
 
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>COINSTORE.BD</h3>
-                <p>বাংলাদেশের অন্যতম নির্ভরযোগ্য গেমিং সার্ভিস প্রোভাইডার। আমরা দিচ্ছি সবচেয়ে কম দামে কয়েন, ইউসি এবং ডায়মন্ড টপ-আপ সুবিধা।</p>
-            </div>
-            
-
-            <div class="footer-section">
-                <h3>আমাদের সাথে যুক্ত হোন</h3>
-                <div class="footer-social-row">
-                    <!-- Contact Icons -->
-                                        <a href="home.html#" target="_blank" class="contact-item" title="Our Location">
-                        <span class="contact-icon"><i class="fas fa-location-dot"></i></span>
-                    </a>
-                                        
-                                        <a href="home.html#" target="_blank" class="contact-item" title="TikTok">
-                        <span class="contact-icon"><i class="fab fa-tiktok"></i></span>
-                    </a>
-                    
-                    <a href="#" target="_blank" class="contact-item" title="Facebook">
-                        <span class="contact-icon"><i class="fab fa-facebook-f"></i></span>
-                    </a>
-                    
-                    <a href="#" target="_blank" class="contact-item" title="WhatsApp">
-                        <span class="contact-icon"><i class="fab fa-whatsapp"></i></span>
-                    </a>
-
-                    <a href="#" target="_blank" class="contact-item" title="YouTube">
-                        <span class="contact-icon"><i class="fab fa-youtube"></i></span>
-                    </a>
-
-                    <a href="#" target="_blank" class="contact-item" title="Telegram">
-                        <span class="contact-icon"><i class="fab fa-telegram-plane"></i></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© 2026 COINSTORE.BD - All Rights Reserved.</p>
-        </div>
-    </footer>
+<div id="footer-placeholder"></div>
 
     <!-- Order Status Modal -->
     <div id="statusModal" class="modal">
@@ -586,141 +424,8 @@
         <span>চ্যাট করুন</span>
     </a>
 
-    <script>
-        window.supportWhatsApp = "8801845464034";
-        
-        function closeStatusModal() {
-            if (typeof countdownInterval !== 'undefined') clearInterval(countdownInterval);
-            document.getElementById('statusModal').style.display = 'none';
-        }
-        
-        function closeSuccessModal() {
-            document.getElementById('successModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = 'none';
-            }
-        }
-
-        let countdownInterval;
-
-        function checkStatus() {
-            const trxidInput = document.getElementById('header_trxid_search');
-            if (!trxidInput) return;
-            
-            const trxid = trxidInput.value.trim();
-            if (!trxid) {
-                alert("দয়া করে ট্রানজেকশন আইডি দিন।");
-                return;
-            }
-            
-            const modal = document.getElementById('statusModal');
-            const resultDiv = document.getElementById('statusResult');
-            
-            if (!modal || !resultDiv) return;
-            
-            if (typeof countdownInterval !== 'undefined') clearInterval(countdownInterval);
-
-            let orders = JSON.parse(localStorage.getItem('user_orders')) || [];
-            let foundOrder = orders.find(o => o.trxid.trim() === trxid);
-
-            if (foundOrder) {
-                modal.style.display = 'block';
-                
-                const updateUI = () => {
-                    const now = Date.now();
-                    const elapsed = now - foundOrder.timestamp;
-                    const oneMinute = 60 * 1000;
-                    const tenMinutes = 10 * 60 * 1000;
-
-                    let statusText = '', statusColor = '', statusIcon = '', deliveryHtml = '';
-
-                    if (elapsed < oneMinute) {
-                        const remaining = oneMinute - elapsed;
-                        const seconds = Math.floor(remaining / 1000);
-                        const timeStr = seconds.toString().padStart(2, '0');
-                        
-                        statusText = 'RECEIVED';
-                        statusColor = '#ffd700';
-                        statusIcon = 'bi-clock-history';
-                        
-                        deliveryHtml = `
-                        <div class="status-glow-card mb-4" style="background: rgba(255, 215, 0, 0.03); border: 1.5px solid rgba(255, 215, 0, 0.4); border-radius: 20px; padding: 15px; box-shadow: 0 0 20px rgba(255, 215, 0, 0.15); position: relative; overflow: hidden;">
-                            <div class="d-flex align-items-center justify-content-center">
-                                <div class="countdown-box" style="background: rgba(0, 0, 0, 0.4); border: 1.5px solid rgba(255, 215, 0, 0.3); padding: 8px 20px; border-radius: 12px; box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.1), 0 0 15px rgba(255, 215, 0, 0.1); display: inline-flex; align-items: baseline; gap: 8px; min-width: 160px; justify-content: center;">
-                                    <div class="time-part">
-                                        <span class="font-monospace fw-bold" style="color: #fff; font-size: 1.6rem; text-shadow: 0 0 8px rgba(255,215,0,0.6);">0</span>
-                                        <span style="font-size: 0.7rem; color: #ffd700; font-weight: 700; margin-left: 2px;">min</span>
-                                    </div>
-                                    <span style="color: #ffd700; font-weight: bold; font-size: 1.4rem; opacity: 0.8;">:</span>
-                                    <div class="time-part">
-                                        <span class="font-monospace fw-bold" style="color: #fff; font-size: 1.6rem; text-shadow: 0 0 8px rgba(255,215,0,0.6);">${timeStr}</span>
-                                        <span style="font-size: 0.7rem; color: #ffd700; font-weight: 700; margin-left: 2px;">sec</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                    } else if (elapsed < tenMinutes) {
-                        statusText = 'PENDING';
-                        statusColor = '#3b82f6';
-                        statusIcon = 'bi-hourglass-split';
-                    } else {
-                        statusText = 'COMPLETED';
-                        statusColor = '#2ecc71';
-                        statusIcon = 'bi-check2-circle';
-                    }
-
-                    resultDiv.innerHTML = `
-                        <div class="text-center">
-                            ${deliveryHtml ? deliveryHtml : `
-                                <div class="status-card mb-4" style="border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
-                                    <i class="bi ${statusIcon} fs-1 d-block mb-2" style="color: ${statusColor};"></i>
-                                    <span class="fw-bold fs-5" style="color: ${statusColor}; letter-spacing: 1px;">${statusText}</span>
-                                </div>
-                            `}
-
-                            <div class="details-compact mb-3" style="background: rgba(255,255,255,0.02); border-radius: 15px; padding: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                                <div class="d-flex justify-content-between mb-1" style="font-size: 0.8rem;">
-                                    <span class="text-white-50">সার্ভিস:</span>
-                                    <span class="fw-600 text-white">${foundOrder.serviceType === 'Boost' ? foundOrder.promoType : foundOrder.serviceType}</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-1" style="font-size: 0.8rem;">
-                                    <span class="text-white-50">পরিমাণ:</span>
-                                    <span class="fw-600 text-warning">${foundOrder.amount} Taka</span>
-                                </div>
-                                <div class="d-flex justify-content-between" style="font-size: 0.8rem;">
-                                    <span class="text-white-50">TrxID:</span>
-                                    <span class="text-info font-monospace">${foundOrder.trxid}</span>
-                                </div>
-                            </div>
-
-                            <a href="https://wa.me/${window.supportWhatsApp}" target="_blank" class="btn btn-sm w-100 py-2 mb-2" style="background: linear-gradient(45deg, #25D366, #128C7E); color: white; border-radius: 50px; font-weight: 700; font-size: 0.9rem; border: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); letter-spacing: 1px;">
-                                <i class="fab fa-whatsapp me-2"></i> Chat Now
-                            </a>
-                            <button onclick="closeStatusModal()" class="btn btn-link text-white-50 text-decoration-none w-100 p-0 small" style="font-size: 0.75rem;">বন্ধ করুন</button>
-                        </div>
-                    `;
-                };
-
-                updateUI();
-                if (Date.now() - foundOrder.timestamp < 600000) { // 10 minutes
-                    countdownInterval = setInterval(updateUI, 1000);
-                }
-            } else {
-                resultDiv.innerHTML = `
-                    <div class="text-center p-2">
-                        <i class="bi bi-exclamation-circle text-danger display-4 d-block mb-3"></i>
-                        <h5 class="text-white mb-2">অর্ডার পাওয়া যায়নি!</h5>
-                        <p class="text-white-50 small mb-4">TrxID-টি সঠিক কিনা চেক করুন।</p>
-                        <button class="btn btn-tiktok w-100 rounded-pill" onclick="closeStatusModal()">আবার চেষ্টা করুন</button>
-                    </div>
-                `;
-                modal.style.display = 'block';
-            }
-        }
-    </script>
+    <script src="./assets/js/config.js"></script>
+    <script src="./assets/js/script.js"></script>
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     
 

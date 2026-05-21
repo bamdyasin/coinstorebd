@@ -2,8 +2,14 @@
 
 const getPaymentData = () => siteConfig.payments;
 
+// Path detection for root or subfolders
+const getPathPrefix = () => {
+    return window.location.pathname.includes('/pages/') ? '../' : '';
+};
+
 // Utility for value animation
 function animateValue(obj, start, end, duration) {
+    if (!obj) return;
     let startTimestamp = null;
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
@@ -12,6 +18,92 @@ function animateValue(obj, start, end, duration) {
         if (progress < 1) window.requestAnimationFrame(step);
     };
     window.requestAnimationFrame(step);
+}
+
+// Header & Footer Loader
+async function loadComponents() {
+    const prefix = getPathPrefix();
+    try {
+        const headerRes = await fetch(prefix + 'includes/header.html');
+        const footerRes = await fetch(prefix + 'includes/footer.html');
+        
+        if (headerRes.ok) {
+            let headerHtml = await headerRes.text();
+            // Fix paths in header based on directory level
+            if (prefix) {
+                headerHtml = headerHtml.replaceAll('href="home.html', 'href="../home.html');
+                headerHtml = headerHtml.replaceAll('href="index.html', 'href="../index.html');
+                headerHtml = headerHtml.replaceAll('src="./assets/', 'src="../assets/');
+                headerHtml = headerHtml.replaceAll('href="pages/', 'href="');
+            }
+            const headerContainer = document.getElementById('header-placeholder');
+            if (headerContainer) {
+                headerContainer.innerHTML = headerHtml;
+                initHeaderLogic();
+            }
+        }
+        
+        if (footerRes.ok) {
+            let footerHtml = await footerRes.text();
+            // Fix paths in footer
+            if (prefix) {
+                footerHtml = footerHtml.replaceAll('href="index.html', 'href="../index.html');
+                footerHtml = footerHtml.replaceAll('src="./assets/', 'src="../assets/');
+            }
+            const footerContainer = document.getElementById('footer-placeholder');
+            if (footerContainer) {
+                footerContainer.innerHTML = footerHtml;
+                initFooterLogic();
+            }
+        }
+    } catch (err) {
+        console.error("Component load error:", err);
+    }
+}
+
+function initHeaderLogic() {
+    const menuTrigger = document.getElementById('mobile-menu-trigger');
+    const navMenu = document.getElementById('nav-menu');
+    const closeBtn = document.getElementById('nav-close-btn');
+
+    if(menuTrigger && navMenu) {
+        menuTrigger.addEventListener('click', () => navMenu.classList.add('active'));
+    }
+    if(closeBtn && navMenu) {
+        closeBtn.addEventListener('click', () => navMenu.classList.remove('active'));
+    }
+
+    const checkBtn = document.querySelector('header .btn-danger');
+    if(checkBtn) {
+        checkBtn.onclick = checkStatus;
+    }
+}
+
+function initFooterLogic() {
+    if (typeof siteConfig !== 'undefined') {
+        const prefix = getPathPrefix();
+        const waLinks = document.querySelectorAll('footer a[href*="wa.me"], .whatsapp-premium');
+        waLinks.forEach(link => {
+            link.href = `https://wa.me/${siteConfig.whatsappNumber}`;
+        });
+
+        const socialLinks = siteConfig.socialLinks;
+        if (socialLinks) {
+            const fbLink = document.querySelector('footer a[title="Facebook"]');
+            const waLink = document.querySelector('footer a[title="WhatsApp"]');
+            const ytLink = document.querySelector('footer a[title="YouTube"]');
+            const tgLink = document.querySelector('footer a[title="Telegram"]');
+            const ttLink = document.querySelector('footer a[title="TikTok"]');
+            const locLink = document.querySelector('footer a[title="Our Location"]');
+
+            if (fbLink) fbLink.href = socialLinks.facebook;
+            if (waLink) waLink.href = socialLinks.whatsapp;
+            if (ytLink) ytLink.href = socialLinks.youtube;
+            if (tgLink) tgLink.href = socialLinks.telegram;
+            if (ttLink) ttLink.href = socialLinks.tiktok;
+            if (locLink) locLink.href = socialLinks.location;
+        }
+    }
 }
 
 function calculateEstimates() {
@@ -193,11 +285,11 @@ function validateTikTokForm() {
 
     try {
         const now = Date.now();
-        const promoType = serviceType === 'Boost' ? document.querySelector('select[name="promo_type"]').value : 'N/A';
+        const promoType = (serviceType === 'Boost' && document.querySelector('select[name="promo_type"]')) ? document.querySelector('select[name="promo_type"]').value : 'N/A';
         
         let finalAmount;
         if (serviceType === 'Boost') {
-            finalAmount = document.getElementById('budget_val').value;
+            finalAmount = document.getElementById('budget_val')?.value || 0;
         } else {
             const coinAmount = parseInt(document.getElementById('coin_val')?.value) || 0;
             const coinRate = parseFloat(siteConfig.coinRate) || 2;
@@ -365,16 +457,8 @@ function closeSuccessModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const menuTrigger = document.getElementById('mobile-menu-trigger');
-    const navMenu = document.getElementById('nav-menu');
-    const closeBtn = document.getElementById('nav-close-btn');
-
-    if(menuTrigger && navMenu) {
-        menuTrigger.addEventListener('click', () => navMenu.classList.add('active'));
-    }
-    if(closeBtn && navMenu) {
-        closeBtn.addEventListener('click', () => navMenu.classList.remove('active'));
-    }
+    // Load Header & Footer
+    loadComponents();
 
     const boostTabBtn = document.getElementById('boost-tab');
     const coinTabBtn = document.getElementById('coin-tab');
@@ -383,18 +467,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const resetFormFields = () => {
             const form = document.querySelector('form');
             if (form) {
-                // Fields to reset
                 const fieldsToReset = ['whatsapp', 'trxid', 'player_id'];
                 fieldsToReset.forEach(name => {
                     const el = form.querySelector(`[name="${name}"]`) || document.getElementById('video_url_input');
                     if (el) el.value = '';
                 });
                 
-                // Reset Payment select
                 const paymentSelect = document.getElementById('payment_method');
                 if (paymentSelect) paymentSelect.value = '';
                 
-                // Hide payment info box
                 const infoBox = document.getElementById('payment_info_box');
                 if (infoBox) infoBox.classList.add('d-none');
             }
@@ -406,9 +487,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('video_link_section').style.display = 'block';
             document.getElementById('video_url_input').setAttribute('required', 'required');
             document.getElementById('rule_public').innerText = 'ভিডিও অবশ্যই পাবলিক হতে হবে (Private ভিডিওতে কাজ হবে না)।';
-            
             document.getElementById('submit_order_btn').innerHTML = 'বুস্ট অর্ডার করুন <i class="bi bi-arrow-right-circle ms-2"></i>';
-            
             calculateEstimates();
         });
 
@@ -418,9 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('video_link_section').style.display = 'none';
             document.getElementById('video_url_input').removeAttribute('required');
             document.getElementById('rule_public').innerText = 'দ্রুত সার্ভিস পেতে সাপোর্ট এ যোগাযোগ করুন।';
-            
             document.getElementById('submit_order_btn').innerHTML = 'কয়েন অর্ডার করুন <i class="bi bi-arrow-right-circle ms-2"></i>';
-            
             calculateCoinPrice();
         });
     }
@@ -428,18 +505,12 @@ document.addEventListener('DOMContentLoaded', function() {
     calculateEstimates();
     calculateCoinPrice();
     
-    const checkBtn = document.querySelector('header .btn-danger');
-    if(checkBtn) checkBtn.addEventListener('click', checkStatus);
-
     // Payment Options Loading
     const paymentSelect = document.getElementById('payment_method');
     
     function populatePaymentMethods() {
         if (!paymentSelect) return;
-        
-        // Ensure options are cleared
         paymentSelect.innerHTML = '<option value="" selected="" disabled="">পছন্দ করুন</option>';
-        
         if (typeof siteConfig !== 'undefined' && siteConfig.payments) {
             Object.keys(siteConfig.payments).forEach(method => {
                 const option = document.createElement('option');
@@ -447,47 +518,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 option.text = method;
                 paymentSelect.appendChild(option);
             });
-            console.log("Payment methods populated successfully.");
-        } else {
-            console.error("siteConfig.payments is not accessible yet.");
         }
     }
 
-    // Call it when DOM is ready
     populatePaymentMethods();
     
-    // Also re-call on tab switch just in case
     if(boostTabBtn && coinTabBtn) {
         [boostTabBtn, coinTabBtn].forEach(btn => {
             btn.addEventListener('shown.bs.tab', populatePaymentMethods);
         });
-    }
-
-    // Set WhatsApp Numbers
-    if (typeof siteConfig !== 'undefined') {
-        const waLinks = document.querySelectorAll('a[href*="wa.me"]');
-        waLinks.forEach(link => {
-            link.href = `https://wa.me/${siteConfig.whatsappNumber}`;
-        });
-        window.supportWhatsApp = siteConfig.whatsappNumber;
-
-        // Update Footer Social Links
-        const socialLinks = siteConfig.socialLinks;
-        if (socialLinks) {
-            const fbLink = document.querySelector('a[title="Facebook"]');
-            const waLink = document.querySelector('a[title="WhatsApp"]');
-            const ytLink = document.querySelector('a[title="YouTube"]');
-            const tgLink = document.querySelector('a[title="Telegram"]');
-            const ttLink = document.querySelector('a[title="TikTok"]');
-            const locLink = document.querySelector('a[title="Our Location"]');
-
-            if (fbLink) fbLink.href = socialLinks.facebook;
-            if (waLink) waLink.href = socialLinks.whatsapp;
-            if (ytLink) ytLink.href = socialLinks.youtube;
-            if (tgLink) tgLink.href = socialLinks.telegram;
-            if (ttLink) ttLink.href = socialLinks.tiktok;
-            if (locLink) locLink.href = socialLinks.location;
-        }
     }
 
     window.onclick = function(event) {
