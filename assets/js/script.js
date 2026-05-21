@@ -380,29 +380,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const coinTabBtn = document.getElementById('coin-tab');
 
     if(boostTabBtn && coinTabBtn) {
+        const resetFormFields = () => {
+            const form = document.querySelector('form');
+            if (form) {
+                // Fields to reset
+                const fieldsToReset = ['whatsapp', 'trxid', 'player_id'];
+                fieldsToReset.forEach(name => {
+                    const el = form.querySelector(`[name="${name}"]`) || document.getElementById('video_url_input');
+                    if (el) el.value = '';
+                });
+                
+                // Reset Payment select
+                const paymentSelect = document.getElementById('payment_method');
+                if (paymentSelect) paymentSelect.value = '';
+                
+                // Hide payment info box
+                const infoBox = document.getElementById('payment_info_box');
+                if (infoBox) infoBox.classList.add('d-none');
+            }
+        };
+
         boostTabBtn.addEventListener('shown.bs.tab', function () {
+            resetFormFields();
             document.getElementById('service_type_input').value = 'Boost';
             document.getElementById('video_link_section').style.display = 'block';
             document.getElementById('video_url_input').setAttribute('required', 'required');
             document.getElementById('rule_public').innerText = 'ভিডিও অবশ্যই পাবলিক হতে হবে (Private ভিডিওতে কাজ হবে না)।';
             
-            // Reset and Update Button
-            document.getElementById('payment_method').value = '';
-            document.getElementById('payment_info_box').classList.add('d-none');
             document.getElementById('submit_order_btn').innerHTML = 'বুস্ট অর্ডার করুন <i class="bi bi-arrow-right-circle ms-2"></i>';
             
             calculateEstimates();
         });
 
         coinTabBtn.addEventListener('shown.bs.tab', function () {
+            resetFormFields();
             document.getElementById('service_type_input').value = 'Coin';
             document.getElementById('video_link_section').style.display = 'none';
             document.getElementById('video_url_input').removeAttribute('required');
             document.getElementById('rule_public').innerText = 'দ্রুত সার্ভিস পেতে সাপোর্ট এ যোগাযোগ করুন।';
             
-            // Reset and Update Button
-            document.getElementById('payment_method').value = '';
-            document.getElementById('payment_info_box').classList.add('d-none');
             document.getElementById('submit_order_btn').innerHTML = 'কয়েন অর্ডার করুন <i class="bi bi-arrow-right-circle ms-2"></i>';
             
             calculateCoinPrice();
