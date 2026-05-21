@@ -38,192 +38,11 @@
     <link rel="stylesheet" href="./assets/css/style.css">
         
     <style>
-        header {
-            background-color: #0a192f;
-            color: #ffffff;
-            padding: 0.8rem 20px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .hero-section {
+            position: relative;
+            padding: 0rem 0;
+            z-index: 1;
         }
-
-        .logo-icon {
-            font-size: 2.2rem;
-            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
-            transition: 0.3s;
-        }
-        .logo-icon:hover {
-            transform: rotate(15deg) scale(1.1);
-        }
-
-        .search-container {
-            flex: 1;
-            margin: 0 10px;
-            min-width: 100px;
-            max-width: 250px;
-        }
-
-        .search-container form {
-            display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 25px;
-            overflow: hidden;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 0.4rem 0.8rem;
-            background: transparent;
-            border: none;
-            color: white;
-            outline: none;
-            font-size: 0.75rem;
-        }
-
-        .search-container input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .search-container button {
-            background: transparent;
-            border: none;
-            padding: 0 0.8rem;
-            cursor: pointer;
-            font-size: 0.9rem;
-            color: #ffd700;
-        }
-
-        .lang-switch-wrap {
-            margin-left: auto;
-            margin-right: 15px;
-        }
-
-        .lang-link {
-            text-decoration: none;
-            color: #ffd700;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 6px 15px;
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
-        }
-
-        .lang-link i {
-            font-size: 1.1rem;
-        }
-
-        .menu-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            width: 42px;
-            height: 42px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 50%;
-            color: #ffd700;
-            font-size: 1.3rem;
-        }
-
-        nav#nav-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
-            background-color: #0a192f;
-            transition: 0.3s ease;
-            z-index: 1001;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-            display: block;
-        }
-
-        nav#nav-menu.active {
-            right: 0;
-        }
-
-        .nav-close {
-            position: absolute;
-            top: 0.8rem;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: #ffd700;
-            font-size: 1.2rem;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 80px 0 0 0;
-            margin: 0;
-        }
-
-        nav ul li a {
-            display: block;
-            padding: 1.2rem 2rem;
-            color: #ffffff !important;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            background: #ffd700;
-            color: #0a192f !important;
-            padding-left: 2.5rem;
-        }
-
-        nav ul li a i {
-            font-size: 1.3rem;
-            width: 30px;
-        }
-
-        @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            .search-container { margin: 0 5px; }
-            .lang-switch-wrap { margin-right: 8px; }
-            .lang-link { padding: 4px 10px; font-size: 0.7rem; }
-        }
-    </style>
-</head>
-<body>
-
-<!-- Status Alert Container -->
-<div id="status_alert_container" class="container" style="position: fixed; top: 75px; z-index: 9999; display: none;">
-    <div id="status_alert_box" class="alert alert-dismissible fade show rounded-4 shadow-sm" role="alert">
-        <span id="status_alert_message"></span>
-        <button type="button" class="btn-close" onclick="document.getElementById('status_alert_container').style.display='none'"></button>
-    </div>
-</div>
-
-<div id="header-placeholder"></div>
-
-<style>
-    .hero-section {
-        position: relative;
-        padding: 0rem 0;
-        z-index: 1;
-    }
     .mb-5 {
         margin-bottom: 0rem!important;
     }
@@ -296,7 +115,18 @@
         }
     }
 </style>
+</head>
+<body>
 
+<!-- Status Alert Container -->
+<div id="status_alert_container" class="container" style="position: fixed; top: 75px; z-index: 9999; display: none;">
+    <div id="status_alert_box" class="alert alert-dismissible fade show rounded-4 shadow-sm" role="alert">
+        <span id="status_alert_message"></span>
+        <button type="button" class="btn-close" onclick="document.getElementById('status_alert_container').style.display='none'"></button>
+    </div>
+</div>
+
+<div id="header-placeholder"></div>
 
 <div class="container mt-4 mb-5">
     
