@@ -194,7 +194,15 @@ function validateTikTokForm() {
     try {
         const now = Date.now();
         const promoType = serviceType === 'Boost' ? document.querySelector('select[name="promo_type"]').value : 'N/A';
-        const finalAmount = serviceType === 'Boost' ? document.getElementById('budget_val').value : document.getElementById('coin_val').value;
+        
+        let finalAmount;
+        if (serviceType === 'Boost') {
+            finalAmount = document.getElementById('budget_val').value;
+        } else {
+            const coinAmount = parseInt(document.getElementById('coin_val')?.value) || 0;
+            const coinRate = parseFloat(siteConfig.coinRate) || 2;
+            finalAmount = coinAmount * coinRate;
+        }
         
         const orderData = {
             serviceType: serviceType,
@@ -282,8 +290,8 @@ function checkStatus() {
                             <span class="fw-600 text-white">${foundOrder.serviceType === 'Boost' ? foundOrder.promoType : foundOrder.serviceType}</span>
                         </div>
                         <div class="d-flex justify-content-between mb-1" style="font-size: 0.8rem;">
-                            <span class="text-white-50">পরিমাণ:</span>
-                            <span class="fw-600 text-warning">${foundOrder.amount} Taka</span>
+                            <span class="text-white-50">মোট দাম:</span>
+                            <span class="fw-600 text-warning">${foundOrder.amount} টাকা</span>
                         </div>
                         <div class="d-flex justify-content-between" style="font-size: 0.8rem;">
                             <span class="text-white-50">TrxID:</span>
@@ -311,7 +319,7 @@ function checkStatus() {
                     </div>
                     <div class="mb-4">
                         <div class="info-item"><span class="info-label">সার্ভিস</span><span class="info-value">${foundOrder.serviceType === 'Boost' ? foundOrder.promoType : foundOrder.serviceType}</span></div>
-                        <div class="info-item"><span class="info-label">পরিমাণ</span><span class="info-value">${foundOrder.amount} Taka</span></div>
+                        <div class="info-item"><span class="info-label">মোট দাম</span><span class="info-value">${foundOrder.amount} টাকা</span></div>
                         <div class="info-item"><span class="info-label">TrxID</span><span class="info-value text-info">${foundOrder.trxid}</span></div>
                         <div class="info-item"><span class="info-label">সময়</span><span class="info-value">${foundOrder.formattedTime || 'N/A'}</span></div>
                     </div>
