@@ -1,0 +1,318 @@
+/* 
+   Blog Specific Styles for COINSTORE.BD
+   Includes Header/Footer sync with main site 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #ffd700;
+    --primary-gradient: linear-gradient(135deg, #ffd700, #daa520);
+    --secondary-color: #0a192f;
+    --text-color: #333333;
+    --text-light: #ffffff;
+    --bg-light: #f8f9fa;
+    --gold-primary: #ffd700;
+    --gold-gradient: linear-gradient(135deg, #ffd700, #daa520);
+    --dark-bg: #0a192f;
+}
+
+body {
+    font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+@media (max-width: 767px) {
+    body { padding-top: 70px; }
+}
+
+/* --- HEADER STYLES (Synced) --- */
+header {
+    background-color: #0a192f;
+    color: #ffffff;
+    padding: 0.8rem 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left; /* Override blog align */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
+}
+
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 50%;
+    color: #ffd700;
+    font-size: 1.3rem;
+}
+
+/* Mobile Nav (Synced) */
+nav#nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #0a192f;
+    transition: 0.3s ease;
+    z-index: 1001;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+}
+
+nav#nav-menu.active {
+    right: 0;
+}
+
+.nav-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 20px;
+    color: #ffd700;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    padding: 80px 0 0 0;
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 1.2rem 2rem;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- BLOG CONTENT STYLES --- */
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.blog-post-card {
+    border-bottom: 1px solid #eee;
+    padding: 25px 0;
+}
+
+.blog-post-card:last-child {
+    border-bottom: none;
+}
+
+.blog-post-card h2 {
+    margin: 0 0 15px 0;
+    font-size: 1.6rem;
+}
+
+.blog-post-card h2 a {
+    color: #222;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.blog-post-card h2 a:hover {
+    color: #fe2c55;
+}
+
+.blog-post-card .meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #fe2c55;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* Single Post Content */
+article h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.post-content {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.post-content h3 {
+    color: #222;
+    margin-top: 25px;
+}
+
+.post-footer {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+/* --- FOOTER STYLES (Synced) --- */
+footer {
+    background: rgba(10, 25, 47, 0.95);
+    color: #ffffff;
+    padding: 60px 0 30px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: var(--gold-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.footer-social-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.contact-item {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    background: var(--gold-gradient);
+    color: #0a192f;
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+}
+
+/* Floating WhatsApp (Synced) */
+.whatsapp-premium {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #ffffff !important;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none !important;
+    box-shadow: 0 10px 30px rgba(18, 140, 126, 0.3);
+}
+
+.whatsapp-premium i { font-size: 1.6rem; }
+
+/* Pagination Styles */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.page-btn:hover, .page-btn.active {
+    background: #fe2c55;
+    color: #fff;
+    border-color: #fe2c55;
+    box-shadow: 0 4px 10px rgba(254, 44, 85, 0.2);
+}
+
+.page-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .container { width: 92%; padding: 20px; }
+    article h1 { font-size: 1.8rem; }
+}

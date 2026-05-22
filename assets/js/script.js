@@ -34,7 +34,8 @@ async function loadComponents() {
                 headerHtml = headerHtml.replaceAll('href="home.html', 'href="../home.html');
                 headerHtml = headerHtml.replaceAll('href="index.html', 'href="../index.html');
                 headerHtml = headerHtml.replaceAll('src="./assets/', 'src="../assets/');
-                headerHtml = headerHtml.replaceAll('href="pages/', 'href="');
+                headerHtml = headerHtml.replaceAll('href="pages/', 'href="../pages/');
+                headerHtml = headerHtml.replaceAll('href="blog/', 'href="../blog/');
             }
             const headerContainer = document.getElementById('header-placeholder');
             if (headerContainer) {
