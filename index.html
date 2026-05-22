@@ -188,7 +188,7 @@
                         <div class="tab-pane fade" id="boost" role="tabpanel" aria-labelledby="boost-tab">
                             <div class="mb-4">
                                 <label class="form-label text-white-50 small"><i class="bi bi-caret-right-fill me-1 text-tiktok-sm"></i>প্রমোটের ধরন</label>
-                                <select class="form-select" name="promo_type" required="">
+                                <select class="form-select" name="promo_type" required="" onchange="calculateEstimates()">
                                     <option value="Video Views" selected="">ভিডিও ভিউ বাড়ান</option>
                                     <option value="Likes &amp; Comments">লাইক এবং কমেন্ট</option>
                                     <option value="More Followers">ফলোয়ার বাড়ান</option>
@@ -227,9 +227,9 @@
                             <div class="mb-4">
                                 <label class="form-label text-white-50 small"><i class="bi bi-caret-right-fill me-1 text-tiktok-sm"></i>কয়েনের পরিমাণ</label>
                                 <div class="budget-counter">
-                                    <button type="button" class="counter-btn" onclick="updateCoins(-10)">−</button>
-                                    <input type="number" class="budget-input" name="coin_amount" id="coin_val" value="50" min="50" step="10" oninput="calculateCoinPrice()">
-                                    <button type="button" class="counter-btn" onclick="updateCoins(10)">+</button>
+                                    <button type="button" class="counter-btn" onclick="updateCoins(-1)">−</button>
+                                    <input type="number" class="budget-input" name="coin_amount" id="coin_val" value="50" min="50" step="1" oninput="calculateCoinPrice()">
+                                    <button type="button" class="counter-btn" onclick="updateCoins(1)">+</button>
                                 </div>
                                 <div id="coin_price_info" class="form-text text-white-50 small mt-2">
                                     <i class="bi bi-info-circle me-1"></i> ১টি কয়েন = 2 টাকা (সর্বনিম্ন ৫০টি)

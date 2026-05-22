@@ -6,7 +6,9 @@ const siteConfig = {
     payments: {
         'bKash': { number: '01845464034', type: 'Personal' },
         'Nagad': { number: '01845464034', type: 'Personal' },
+        /*
         'Rocket': { number: '01845464034', type: 'Personal' }
+        */
     },
     
     // Service Rates (Rate per unit of budget)
@@ -21,12 +23,12 @@ const siteConfig = {
     coinRate: 2,
 
     // WhatsApp Support Number
-    whatsappNumber: '8801845464021',
+    whatsappNumber: '8801845464034',
 
     // Social Media Links
     socialLinks: {
         facebook: 'https://facebook.com/coinstorebd',
-        whatsapp: 'https://wa.me/8801845464021',
+        whatsapp: 'https://wa.me/8801845464034',
         youtube: 'https://youtube.com/@coinstorebd',
         telegram: 'https://t.me/coinstorebd',
         tiktok: 'https://tiktok.com/@coinstorebd',
