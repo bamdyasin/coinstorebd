@@ -63,17 +63,22 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/images/logo_1775895910.png">
-    <!-- Bootstrap -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Font -->
-    <link href="./assets/css/css2" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
-    <!-- Custom Style -->
+    <!-- Critical CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Preload non-critical resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
+    
+    <!-- Font -->
+    <link rel="preload" href="./assets/css/css2" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./assets/css/css2"></noscript>
+
         
     <style>
         .hero-section {
@@ -476,9 +481,9 @@
         <span>চ্যাট করুন</span>
     </a>
 
-    <script src="./assets/js/config.js"></script>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/config.js" defer></script>
+    <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/bootstrap.bundle.min.js" defer></script>
     
 
 </body></html>

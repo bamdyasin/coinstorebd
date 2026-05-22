@@ -458,9 +458,13 @@ function closeSuccessModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Load Header & Footer
-    loadComponents();
-
+    // Load Header & Footer with requestIdleCallback for better performance
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => loadComponents());
+    } else {
+        setTimeout(loadComponents, 1);
+    }
+    
     const boostTabBtn = document.getElementById('boost-tab');
     const coinTabBtn = document.getElementById('coin-tab');
 
@@ -503,8 +507,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    calculateEstimates();
-    calculateCoinPrice();
+    // Debounced initial calculations
+    requestAnimationFrame(() => {
+        calculateEstimates();
+        calculateCoinPrice();
+    });
     
     // Payment Options Loading
     const paymentSelect = document.getElementById('payment_method');
@@ -530,10 +537,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    window.onclick = function(event) {
+    window.addEventListener('click', function(event) {
         const modals = document.querySelectorAll('.modal');
         modals.forEach(m => {
             if (event.target === m) m.style.display = 'none';
         });
-    };
+    });
 });
