@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap link
-Sitemap: https://coinstorebd.com/sitemap.xml
+Sitemap: https://coinstore.bd/sitemap.xml
