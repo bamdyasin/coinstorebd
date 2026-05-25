@@ -21,6 +21,18 @@
         <loc>https://coinstore.bd/pages/contact.html</loc>
         <priority>0.50</priority>
     </url>
+    <url>
+        <loc>https://coinstore.bd/pages/privacy-policy.html</loc>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>https://coinstore.bd/pages/terms-and-conditions.html</loc>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>https://coinstore.bd/pages/disclaimer.html</loc>
+        <priority>0.50</priority>
+    </url>
 
     <!-- Blog Pages -->
     <url>

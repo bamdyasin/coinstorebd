@@ -49,7 +49,10 @@ async function loadComponents() {
             // Fix paths in footer
             if (prefix) {
                 footerHtml = footerHtml.replaceAll('href="index.html', 'href="../index.html');
+                footerHtml = footerHtml.replaceAll('href="home.html', 'href="../home.html');
                 footerHtml = footerHtml.replaceAll('src="./assets/', 'src="../assets/');
+                footerHtml = footerHtml.replaceAll('href="pages/', 'href="../pages/');
+                footerHtml = footerHtml.replaceAll('href="blog/', 'href="../blog/');
             }
             const footerContainer = document.getElementById('footer-placeholder');
             if (footerContainer) {
